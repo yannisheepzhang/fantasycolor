@@ -20,7 +20,7 @@
 .recommendation-tags{display:flex;flex-wrap:wrap;gap:6px}
 .recommendation-tag{display:block;padding:3px 8px;border-radius:5px;font-size:13px;background:color-mix(in srgb,var(--demo-900) 4%,transparent);color:color-mix(in srgb,var(--demo-900) 40%,transparent)}
 .recommendation-tags > :first-child .recommendation-tag{background:color-mix(in srgb,var(--demo-500) 8%,transparent);color:var(--demo-500)}
-.recommendation-saved{padding:8px 12px;border-radius:30px;background:white;color:color-mix(in srgb,var(--demo-500) 40%,transparent);font-size:14px;white-space:nowrap}
+.recommendation-saved{padding:8px 12px;border-radius:30px;background:white;color:var(--demo-500);font-size:14px;white-space:nowrap}
 .recommendation,.card-tip-target{position:relative}
 .card-tip-target{width:fit-content;max-width:100%;cursor:help}
 .card-tip{position:absolute;z-index:5;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);width:max-content;max-width:min(208px,65vw);padding:8px 10px;border-radius:8px;background:#162940;color:#fff;font-size:13px;line-height:1.5;visibility:hidden;pointer-events:none;box-shadow:0 4px 16px #16294038}
