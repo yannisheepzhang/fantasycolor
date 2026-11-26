@@ -3,7 +3,15 @@
 <main><div class="heading"><div><p>上传图片，查看原始主色如何生成界面色阶</p></div><button id="export">导出 JSON</button></div>
 <div class="workspace"><aside><section class="panel"><div class="section-title"><h2>图片与主色</h2></div><label class="drop" id="drop"><input type="file" id="file" accept="image/png,image/jpeg,image/webp,image/gif"><div id="cover"><img id="example-image" src="assets/example-cover.png" alt="《玄鉴仙族》示例封面"></div><b>点击选择、拖入或粘贴图片</b><span>⌘V / Ctrl+V · PNG / JPG / WebP / GIF · 最大 20 MB</span></label><div id="status" role="status"></div><div class="section-title original-heading"><h3>原始主色</h3><span id="origin" hidden>示例</span></div><div class="original"><div id="original-swatch"></div><div><strong id="hex"></strong><span id="hsl"></span><span id="rgb"></span></div></div><div id="candidates"></div><div class="manual"><label for="color">手动试色</label><input type="color" id="color" value="#367d78"><input id="hex-input" aria-label="输入HEX颜色" value="#367D78" maxlength="7"></div><p class="hint">取色采用 RGB 量化直方图：缩放至最长边 160px，选占比最高色桶的均值。可点击候选色重算；不额外过滤黑白色。</p></section><section class="panel notes"><h3>本次命中规则</h3><strong id="group"></strong><p>H 保持不变；S 按各档阈值处理；L 替换为固定值。</p><p>低饱和度 S ≤ 5 时，按原值 +6。</p><details><summary>边界与原表特殊值</summary><p>分组使用四舍五入后的整数 H。H=0° 等同 360°，归中明度。实际输出保留原始 H 精度。</p><p>ColorFont Light 700 的高明度分支，原表写明 S≥40 时换算为45，本 Demo 原样执行。</p><p>附件未提供取色算法及额外映射公式；这里的取色为可复现 Demo 算法，Light / Dark 映射按两张表生成。</p></details></section></aside>
 <div class="results"><section class="panel"><div class="section-title"><h2>计算后的色阶</h2><span class="tag">30 个颜色 Token</span></div><div id="palettes"></div></section>
-<section class="panel usage-panel"><div class="section-title"><h2>使用示意</h2><button id="next-cover" type="button">换一张封面</button></div>
+<section class="panel usage-panel">
+<div class="section-title"><h2>使用示意</h2><div class="usage-actions">
+<button id="next-cover" type="button" aria-label="换一张封面" title="换一张封面">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4v5h-5M4 20v-5h5M5.2 9a7.5 7.5 0 0 1 12.4-3.2L20 9M4 15l2.4 3.2A7.5 7.5 0 0 0 18.8 15"/></svg>
+</button>
+<button id="usage-mode" type="button" aria-label="夜间模式" aria-pressed="false" title="切换到夜间模式">
+<svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 15.3A8.8 8.8 0 0 1 8.7 3.4a8.8 8.8 0 1 0 11.9 11.9Z"/></svg>
+<svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+</button></div></div>
 <article class="recommendation" tabindex="0" aria-label="荐书卡配色示意" aria-describedby="tip-card-bg">
 <span class="card-tip card-bg-tip" id="tip-card-bg" role="tooltip">卡片背景 · ColorFont_700 / 6%</span>
 <img id="demo-cover" src="assets/demo-xuanjin.png" alt="">

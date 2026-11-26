@@ -10,7 +10,22 @@
   const next = document.getElementById('next-cover');
   const error = document.getElementById('demo-error');
   const card = cover.closest('.recommendation');
+  const panel = card.closest('.usage-panel');
+  const modeButton = document.getElementById('usage-mode');
+  const tipLabels = Array.from(card.querySelectorAll('.card-tip'), tip => ({
+    node: tip.firstChild,
+    lightText: tip.firstChild.textContent
+  }));
   let current = 0;
+  let mode = 'light';
+  let mainColor;
+
+  function updateCardColors() {
+    if (!mainColor) return;
+    for (const {level, hex} of ColorEngine.palette(mainColor.h, mainColor.s, mode)) {
+      if ([500, 700, 900].includes(level)) card.style.setProperty('--demo-' + level, hex);
+    }
+  }
 
   async function showBook(index) {
     next.disabled = true;
@@ -27,11 +42,8 @@
       const context = canvas.getContext('2d');
       context.drawImage(image, 0, 0, canvas.width, canvas.height);
       const [main] = ColorEngine.extract(context.getImageData(0, 0, canvas.width, canvas.height).data);
-      const {h, s} = ColorEngine.rgbToHsl(...main.rgb);
-      const palette = ColorEngine.palette(h, s, 'light');
-      for (const {level, hex} of palette) {
-        if ([500, 700, 900].includes(level)) card.style.setProperty('--demo-' + level, hex);
-      }
+      mainColor = ColorEngine.rgbToHsl(...main.rgb);
+      updateCardColors();
       cover.src = image.src;
       title.textContent = name;
       current = index;
@@ -43,5 +55,16 @@
   }
 
   next.addEventListener('click', () => showBook((current + 1) % books.length));
+  modeButton.addEventListener('click', () => {
+    const dark = mode === 'light';
+    mode = dark ? 'dark' : 'light';
+    panel.dataset.mode = mode;
+    modeButton.setAttribute('aria-pressed', String(dark));
+    modeButton.title = dark ? '切换到日间模式' : '切换到夜间模式';
+    for (const {node, lightText} of tipLabels) {
+      node.textContent = dark ? lightText.replace(/ColorFont_\d+/, '$&_D') : lightText;
+    }
+    updateCardColors();
+  });
   showBook(current);
 })();

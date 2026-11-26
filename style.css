@@ -33,3 +33,14 @@
 .recommendation-saved,.recommendation-tag{font-weight:700}
 #demo-error:empty{display:none}
 @media(max-width:440px){.recommendation{grid-template-columns:62px minmax(0,1fr);gap:10px}.recommendation img{width:62px;grid-row:span 2}.recommendation > .card-tip-target{justify-self:start}}
+.usage-actions{display:flex;gap:8px}
+.usage-actions button{display:grid;width:40px;height:40px;place-items:center;padding:0}
+.usage-actions svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.usage-actions .sun-icon,.usage-panel[data-mode=dark] .moon-icon{display:none}
+.usage-panel[data-mode=dark] .sun-icon{display:block}
+.usage-panel[data-mode=dark]{color-scheme:dark;background:#162436;color:#edf4ff;border-color:#30435b}
+.usage-panel[data-mode=dark] .usage-actions button{background:#22344b;border-color:#435975;color:#edf4ff}
+.usage-panel[data-mode=dark] .usage-actions button:hover{border-color:#94bbef}
+.usage-panel[data-mode=dark] .recommendation{background:color-mix(in srgb,var(--demo-700) 6%,#101b2a)}
+.usage-panel[data-mode=dark] .recommendation-saved{background:#26384e}
+.usage-panel[data-mode=dark] #demo-error{color:#f3c8bf}
