@@ -30,5 +30,6 @@
   .recommendation:hover .card-tip-target:focus:not(:hover) > .card-tip,.recommendation:has(.card-tip-target:hover) > .card-bg-tip{visibility:hidden}
 }
 .recommendation-saved{display:block}
+.recommendation-saved,.recommendation-tag{font-weight:700}
 #demo-error:empty{display:none}
 @media(max-width:440px){.recommendation{grid-template-columns:62px minmax(0,1fr);gap:10px}.recommendation img{width:62px;grid-row:span 2}.recommendation > .card-tip-target{justify-self:start}}
