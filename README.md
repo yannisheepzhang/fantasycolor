@@ -1,6 +1,6 @@
-# 书封色彩实验室
+# 图片色彩实验室
 
-上传书封图片，提取原始主色，并按提供的起点读书色彩规则生成 FantasyColor、ColorFont Light 和 ColorFont Dark 共 30 个颜色 Token。
+上传图片，提取原始主色，并按提供的起点读书色彩规则生成 FantasyColor、ColorFont Light 和 ColorFont Dark 共 30 个颜色 Token。
 
 ## 使用
 
