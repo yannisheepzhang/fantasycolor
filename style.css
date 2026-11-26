@@ -38,7 +38,7 @@
 .usage-actions svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .usage-actions .sun-icon,.usage-panel[data-mode=dark] .moon-icon{display:none}
 .usage-panel[data-mode=dark] .sun-icon{display:block}
-.usage-panel[data-mode=dark]{color-scheme:dark;background:#162436;color:#edf4ff;border-color:#30435b}
+.usage-panel[data-mode=dark]{color-scheme:dark;background:#000;color:#edf4ff;border-color:#30435b}
 .usage-panel[data-mode=dark] .usage-actions button{background:#22344b;border-color:#435975;color:#edf4ff}
 .usage-panel[data-mode=dark] .usage-actions button:hover{border-color:#94bbef}
 .usage-panel[data-mode=dark] .recommendation{background:color-mix(in srgb,var(--demo-700) 6%,#101b2a)}
