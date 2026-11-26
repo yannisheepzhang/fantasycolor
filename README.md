@@ -1,4 +1,4 @@
-# 图片算色演示
+# 起点读书图片算色演示
 
 上传图片，提取原始主色，并按提供的起点读书色彩规则生成 FantasyColor、ColorFont Light 和 ColorFont Dark 共 30 个颜色 Token。
 
