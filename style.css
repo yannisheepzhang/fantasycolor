@@ -7,3 +7,5 @@
 .swatch:focus .swatch-tip{opacity:1;pointer-events:auto}
 @media(hover:hover){.swatch:hover{z-index:3}.swatch:hover .swatch-tip{opacity:1;pointer-events:auto}.swatches:hover .swatch:focus:not(:hover) .swatch-tip{opacity:0;pointer-events:none}}
 @media(max-width:1050px){.swatch:nth-child(n) .swatch-tip{left:0;right:auto}.swatch:nth-child(5n+3) .swatch-tip{left:50%;transform:translateX(-50%)}.swatch:nth-child(5n+4) .swatch-tip,.swatch:nth-child(5n) .swatch-tip{left:auto;right:0}}
+#status:empty{margin:0;min-height:0}
+#status:empty + .original-heading{margin-top:24px}
