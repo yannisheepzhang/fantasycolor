@@ -18,10 +18,17 @@
 .recommendation h3{font-size:19px;overflow-wrap:anywhere}
 .recommendation p{margin:4px 0 8px;color:color-mix(in srgb,var(--demo-900) 40%,transparent);font-size:14px}
 .recommendation-tags{display:flex;flex-wrap:wrap;gap:6px}
-.recommendation-tags span{padding:3px 8px;border-radius:5px;font-size:13px;background:color-mix(in srgb,var(--demo-900) 4%,transparent);color:color-mix(in srgb,var(--demo-900) 40%,transparent)}
-.recommendation-tags span:first-child{background:color-mix(in srgb,var(--demo-500) 8%,transparent);color:var(--demo-500)}
+.recommendation-tag{display:block;padding:3px 8px;border-radius:5px;font-size:13px;background:color-mix(in srgb,var(--demo-900) 4%,transparent);color:color-mix(in srgb,var(--demo-900) 40%,transparent)}
+.recommendation-tags > :first-child .recommendation-tag{background:color-mix(in srgb,var(--demo-500) 8%,transparent);color:var(--demo-500)}
 .recommendation-saved{padding:8px 12px;border-radius:30px;background:white;color:color-mix(in srgb,var(--demo-500) 40%,transparent);font-size:14px;white-space:nowrap}
-.usage-panel details{margin-top:14px;font-size:14px}
-.usage-panel summary{cursor:pointer;color:var(--accent)}
+.recommendation,.card-tip-target{position:relative}
+.card-tip-target{width:fit-content;max-width:100%;cursor:help}
+.card-tip{position:absolute;z-index:5;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);width:max-content;max-width:min(208px,65vw);padding:8px 10px;border-radius:8px;background:#162940;color:#fff;font-size:13px;line-height:1.5;visibility:hidden;pointer-events:none;box-shadow:0 4px 16px #16294038}
+.card-tip-target:focus > .card-tip,.recommendation:focus > .card-bg-tip{visibility:visible}
+@media(hover:hover){
+  .card-tip-target:hover > .card-tip,.recommendation:hover:not(:has(.card-tip-target:hover)) > .card-bg-tip{visibility:visible}
+  .recommendation:hover .card-tip-target:focus:not(:hover) > .card-tip,.recommendation:has(.card-tip-target:hover) > .card-bg-tip{visibility:hidden}
+}
+.recommendation-saved{display:block}
 #demo-error:empty{display:none}
-@media(max-width:440px){.recommendation{grid-template-columns:62px minmax(0,1fr);gap:10px}.recommendation img{width:62px;grid-row:span 2}.recommendation-saved{justify-self:start}}
+@media(max-width:440px){.recommendation{grid-template-columns:62px minmax(0,1fr);gap:10px}.recommendation img{width:62px;grid-row:span 2}.recommendation > .card-tip-target{justify-self:start}}
